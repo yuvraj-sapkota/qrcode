@@ -1,6 +1,6 @@
 import { QRCodeCanvas } from "qrcode.react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,13 +11,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("https://digital-menu-kgqy.onrender.com/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://digital-menu-kgqy.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
 
@@ -68,6 +71,12 @@ const Login = () => {
         >
           Login
         </button>
+        <div className="flex items-center justify-center gap-2">
+          <p>Don't have an Account?</p>{" "}
+          <span className="text-blue-500">
+            <Link to="/Register">Signup</Link>
+          </span>
+        </div>
       </form>
     </div>
   );
