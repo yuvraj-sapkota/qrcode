@@ -8,8 +8,11 @@ const PublicMenu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const res = await fetch(`https://digital-menu-kgqy.onrender.com/api/public/menu/${id}`);
+        const res = await fetch(
+          `https://digital-menu-kgqy.onrender.com/api/public/menu/${id}`
+        );
         const data = await res.json();
+        console.log("the public menu is", res);
         setMenu(data);
       } catch (error) {
         console.error("Failed to load menu", error);
@@ -21,7 +24,7 @@ const PublicMenu = () => {
 
   return (
     <div className="p-4 max-w-xl mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-4">Restaurant Menu</h1>
+      <h1 className="text-3xl font-bold text-center mb-4">Restaurants Menu</h1>
       {menu.map((item) => (
         <div key={item._id} className="bg-white rounded-lg shadow p-4 mb-3">
           <h2 className="text-xl font-semibold">{item.name}</h2>
