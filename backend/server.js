@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const authRoute = require("./routes/authRoutes");
 const menuRoute = require("./routes/menuRoutes");
-// const qrRoute = require("./controllers/qrController");
 const publicRoutes = require("./routes/publicRoutes");
 const qrRoutes = require("./routes/qrRoutes");
 
@@ -14,7 +13,14 @@ dotenv.config();
 const connectDB = require("./config/db");
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: ["https://digital-menu-kgqy.onrender.com"], // update with your frontend URLs
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const _dirname = path.resolve();

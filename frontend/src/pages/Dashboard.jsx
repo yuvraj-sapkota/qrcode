@@ -20,7 +20,7 @@ const Dashboard = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const res = await fetch("http://localhost:8000/api/menu", {
+    const res = await fetch("https://digital-menu-kgqy.onrender.com/api/menu", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -28,7 +28,7 @@ const Dashboard = () => {
   };
 
   const fetchRestaurantInfo = async () => {
-    const res = await fetch("http://localhost:8000/api/auth/me", {
+    const res = await fetch("https://digital-menu-kgqy.onrender.com/api/auth/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -46,8 +46,8 @@ const Dashboard = () => {
     const payload = { name, price, category };
 
     const url = editId
-      ? `http://localhost:8000/api/menu/${editId}`
-      : "http://localhost:8000/api/menu";
+      ? `https://digital-menu-kgqy.onrender.com/api/menu/${editId}`
+      : "https://digital-menu-kgqy.onrender.com/api/menu";
 
     const method = editId ? "PUT" : "POST";
 
@@ -72,7 +72,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this item?")) return;
 
-    await fetch(`http://localhost:8000/api/menu/${id}`, {
+    await fetch(`https://digital-menu-kgqy.onrender.com/api/menu/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

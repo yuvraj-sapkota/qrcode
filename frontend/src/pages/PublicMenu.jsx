@@ -8,7 +8,7 @@ const PublicMenu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/api/public/menu/${id}`);
+        const res = await fetch(`https://digital-menu-kgqy.onrender.com/api/public/menu/${id}`);
         const data = await res.json();
         setMenu(data);
       } catch (error) {

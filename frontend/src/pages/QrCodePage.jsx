@@ -1,7 +1,7 @@
 import { QRCodeCanvas } from "qrcode.react";
 
 const QrCodeSection = ({ restaurantId }) => {
-  const publicUrl = `http://localhost:8000/api/qr/register/${restaurantId}`;
+  const publicUrl = `https://digital-menu-kgqy.onrender.com/api/qr/register/${restaurantId}`;
 
   return (
     <div className="mt-6 border p-4 rounded shadow bg-white">
